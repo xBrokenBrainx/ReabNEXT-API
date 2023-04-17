@@ -4,6 +4,9 @@ import com.brokenbrain.protitipo.model.entity.usuario.UsuarioEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Collection;
+import java.util.Map;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
@@ -24,9 +27,11 @@ public class TreinoEntity {
                 foreignKey =
                     @ForeignKey(name = "FK_Treino_Usuario",value = ConstraintMode.CONSTRAINT)
     )
-    @Getter @Setter private UsuarioEntity usuario;
+    @Getter @Setter
+    private UsuarioEntity usuario;
 
-    @Getter @Setter private String treino;
+    @Getter @Setter
+    private String treino;
 
 
     @Override

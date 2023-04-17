@@ -1,5 +1,6 @@
 package com.brokenbrain.protitipo.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -10,6 +11,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Map;
 
 @NoArgsConstructor
 public class GptService{
@@ -20,6 +22,9 @@ public class GptService{
     private static long MAX_TOKENS = 100;
     private static float TEMPERATURE = 1;
     private static String MODEL = "text-davinci-003";
+
+    @Getter @Setter
+    private Map<String, Object> map;
 
     public void gerarInput() {
 
@@ -58,22 +63,18 @@ public class GptService{
                     new InputStreamReader(response.getEntity().getContent()));
 
             String output;
-            int respInicio = 0;
-            int respFim = 0;
             System.out.println("\n\nGPT Resposta: \n");
-            while ( (output = reader.readLine()) != null){
+
+            ObjectMapper objectMapper = new ObjectMapper();
+
+            while ( (output = reader.readLine()) != null ) {
                 System.out.println(output);
-                if (output.contains("text\":") || output.contains("\"usage")) {
-                    respInicio = reader.readLine().indexOf("text\":");
-                    respFim = reader.readLine().indexOf("\"usage");
-                }
-                System.out.println("Começa: "+ respInicio);
-                System.out.println("Fim: "+ respFim);
+                map = objectMapper.readValue(output, Map.class);
             }
 
-
+            /*
             client.getConnectionManager().shutdown();
-
+             */
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }

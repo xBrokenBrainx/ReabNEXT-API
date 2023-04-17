@@ -7,7 +7,7 @@ public class PromptEntity {
 
     public String gerarPrompt(UsuarioEntity usuario){
 
-        return "Gere uma rotina de uma semana de" +
+        return "Gere uma rotina de 5 dias de" +
                 "treino (listando cada dia) para uma pessoa com deficiencia ( " +
                 usuario.getDescDeficiencia()+
                 " ) em reabilitacao " +
@@ -17,7 +17,7 @@ public class PromptEntity {
                 usuario.getAltura() +
                 "cm de altura e com " +
                 usuario.getIdade() +
-                " anos de idade";
+                " anos de idade. Com mínimo de tokens possivel";
     }
 
 }
