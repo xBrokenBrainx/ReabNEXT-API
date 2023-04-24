@@ -1,52 +1,60 @@
 package com.brokenbrain.protitipo;
 
-import com.brokenbrain.protitipo.model.entity.gpt.PromptEntity;
-import com.brokenbrain.protitipo.model.entity.treino.TreinoEntity;
-import com.brokenbrain.protitipo.model.entity.usuario.UsuarioEntity;
-import com.brokenbrain.protitipo.service.GptService;
+import com.brokenbrain.protitipo.gpt.model.GPT;
+import com.brokenbrain.protitipo.gpt.service.GptService;
+import com.brokenbrain.protitipo.paciente.model.Paciente;
+import com.brokenbrain.protitipo.treino.model.Treino;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 
 public class ProtitipoApplication {
 
     public static void main(String[] args) {
 
-        /*
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("oracle");
+
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("maria-db");
         EntityManager manager = factory.createEntityManager();
 
 
-         */
-
-        UsuarioEntity usuario = new UsuarioEntity();
-        usuario.setIdade(24);
+        var usuario = new Paciente();
+        usuario.setNascimento(LocalDate.now().minusYears(24));
         usuario.setPeso(53);
-        usuario.setAltura(175);
-        usuario.setDescDeficiencia("Braco esquerdo amputado na altura do cotovelo");
+        usuario.setAltura(1.75f);
+        usuario.setDescDeficiencia("Braço esquerdo amputado na altura do cotovelo");
 
-        PromptEntity promptEntity = new PromptEntity();
-        String prompt = promptEntity.gerarPrompt(usuario);
 
-        GptService gpt = new GptService();
-        gpt.setPROMPT(prompt);
-        gpt.gerarInput();
+        var treino = new Treino();
+        treino.setPaciente(usuario)
+                .setQuantidadeDeDias(5)
+                .setInicio(LocalDateTime.now().plusDays(1))
+                .setFim(LocalDateTime.now().plusDays(6))
+                .setDescricao("Amputação no braço esquerdo na altura do cotovelo");
 
-        TreinoEntity treino = new TreinoEntity();
-        treino.setUsuario(usuario);
-        treino.setTreino(gpt.getPromptMap().toString());
 
-        System.out.println(promptEntity.tratamentoOutput(gpt));
+        var gpt = new GPT();
+        gpt.setTreino(treino);
 
-        /*
+
+        String prompt = gpt.getPrompt();
+
+        GptService service = new GptService();
+        service.setPROMPT(prompt);
+        service.gerarInput();
+
+
+        System.out.println(service);
+
+
         manager.getTransaction().begin();
-        manager.persist(treino);
-        manager.persist(usuario);
+        manager.persist(gpt);
         manager.getTransaction().commit();
         manager.close();
-
-         */
+        factory.close();
 
 
     }
