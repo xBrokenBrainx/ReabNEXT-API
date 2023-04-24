@@ -16,15 +16,15 @@ import java.util.Map;
 @NoArgsConstructor
 public class GptService{
 
-    private static String KEY = "sk-";
+    private static String KEY = "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";
     @Getter @Setter
     private static String PROMPT = "";
-    private static long MAX_TOKENS = 100;
+    private static long MAX_TOKENS = 300;
     private static float TEMPERATURE = 1;
     private static String MODEL = "text-davinci-003";
 
     @Getter @Setter
-    private Map<String, Object> map;
+    private Map<String, Object> promptMap;
 
     public void gerarInput() {
 
@@ -69,7 +69,7 @@ public class GptService{
 
             while ( (output = reader.readLine()) != null ) {
                 System.out.println(output);
-                map = objectMapper.readValue(output, Map.class);
+                promptMap = objectMapper.readValue(output, Map.class);
             }
 
             /*

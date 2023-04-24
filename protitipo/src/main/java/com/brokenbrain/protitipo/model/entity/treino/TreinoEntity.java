@@ -33,7 +33,6 @@ public class TreinoEntity {
     @Getter @Setter
     private String treino;
 
-
     @Override
     public String toString() {
         return "TreinoEntity{" +

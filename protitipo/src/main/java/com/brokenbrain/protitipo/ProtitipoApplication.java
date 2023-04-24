@@ -17,6 +17,7 @@ public class ProtitipoApplication {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("oracle");
         EntityManager manager = factory.createEntityManager();
 
+
          */
 
         UsuarioEntity usuario = new UsuarioEntity();
@@ -24,13 +25,6 @@ public class ProtitipoApplication {
         usuario.setPeso(53);
         usuario.setAltura(175);
         usuario.setDescDeficiencia("Braco esquerdo amputado na altura do cotovelo");
-
-        /*
-        manager.getTransaction().begin();
-        manager.persist(usuario);
-        manager.getTransaction().commit();
-        manager.close();
-         */
 
         PromptEntity promptEntity = new PromptEntity();
         String prompt = promptEntity.gerarPrompt(usuario);
@@ -40,25 +34,20 @@ public class ProtitipoApplication {
         gpt.gerarInput();
 
         TreinoEntity treino = new TreinoEntity();
-
         treino.setUsuario(usuario);
-        treino.setTreino(gpt.getMap().toString());
+        treino.setTreino(gpt.getPromptMap().toString());
 
-        System.out.println( "\n String tratada: \n"+
-                gpt.getMap().get("choices").toString()
-                        .replace("[{text=.","")
-                        .replace("[{text=","")
-                        .replace(", index=0, logprobs=null, finish_reason=length}]", "")
-                        .replace("index=0, logprobs=null, finish_reason=length}]", "")
-                        .replace("., index=0, logprobs=null, finish_reason=length}]", ".")
-        );
-/*
+        System.out.println(promptEntity.tratamentoOutput(gpt));
+
+        /*
         manager.getTransaction().begin();
         manager.persist(treino);
+        manager.persist(usuario);
         manager.getTransaction().commit();
         manager.close();
 
- */
+         */
+
 
     }
 

@@ -16,6 +16,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.13.0</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/com.oracle.database.jdbc/ojdbc10 -->
         <dependency>
             <groupId>com.oracle.database.jdbc</groupId>
@@ -43,6 +48,13 @@
             <artifactId>httpclient</artifactId>
             <version>4.5.14</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-archetype-application</artifactId>
+            <version>24.0.4</version>
+        </dependency>
+
     </dependencies>
 
 
