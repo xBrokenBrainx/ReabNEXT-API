@@ -1,0 +1,19 @@
+{
+  "id": "cmpl-78vjL27OxhDr1U0t0V9hHFTZMdmH9",
+  "object": "text_completion",
+  "created": 1682362895,
+  "model": "text-davinci-003",
+  "choices": [
+    {
+      "text": " \n\n1. Dia 1:\n- Alongamento Geral;\n- Exercícios de Resistência à Explosão: 3 séries de 10 repetições para fortalecer o braco direito através do uso de halteres;\n- Exercícios de Equilíbrio: 3 séries de 25 segundos de equilíbrio para estimular a coordenação motora;\n\n2. Dia 2:\n- Alongamento Geral;\n- Exercícios de Resistência à Flexão-Extensão: 4 séries de 10 repetições para fortalecer o braço direito usando halteres;\n- Exercícios de Marcha: 3 séries de 100m de marcha para estimular a coordenação motora;\n\n3. Dia 3: \n- Alongamento Geral;\n- Exercícios de Resistência à Rotação: 3 séries de 10 repetições para fortalecer o braço direito usando halteres;\n- Exercícios de Alongamento Dinâmico: 3 sets de 20 segundos para maior elasticidade muscular;\n\n4. Dia 4",
+      "index": 0,
+      "logprobs": null,
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 87,
+    "completion_tokens": 300,
+    "total_tokens": 387
+  }
+}
