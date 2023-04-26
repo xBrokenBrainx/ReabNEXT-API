@@ -1,9 +1,7 @@
 package com.brokenbrain.protitipo.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -14,6 +12,8 @@ import java.io.InputStreamReader;
 import java.util.Map;
 
 @NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class GptService{
 
     private static String KEY = "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";
