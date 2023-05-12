@@ -17,7 +17,7 @@ import java.util.Map;
 @Data
 public class GptService {
 
-    private static String KEY = "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";
+    private static String KEY = "";
     private String PROMPT = "";
     private long MAX_TOKENS = 300;
     private float TEMPERATURE = 1;
