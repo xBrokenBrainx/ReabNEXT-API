@@ -2,7 +2,6 @@ package com.brokenbrain.protitipo.gpt.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 import lombok.Data;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -17,14 +16,21 @@ import java.util.Map;
 @Data
 public class GptService {
 
-    private static String KEY = "";
+    private static String KEY = "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";
     private String PROMPT = "";
     private long MAX_TOKENS = 300;
     private float TEMPERATURE = 1;
     private String MODEL = "text-davinci-003";
 
-
     private Map<String, Object> promptMap;
+
+
+    public Map<String, Object> getPromptMap() {
+        return promptMap;
+    }
+    public void setPromptMap(Map<String, Object> promptMap) {
+        this.promptMap = promptMap;
+    }
 
     public void gerarInput() {
 
@@ -74,9 +80,9 @@ public class GptService {
                 promptMap = objectMapper.readValue(output, Map.class);
             }
 
-            /*
+
             client.getConnectionManager().shutdown();
-             */
+
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
         }
