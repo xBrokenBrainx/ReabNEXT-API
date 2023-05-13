@@ -38,20 +38,17 @@ public class GPT {
     )
     private Treino treino;
 
-
     @OneToMany(mappedBy = "gpt", fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private Set<Choice> choices = new LinkedHashSet<>();
-
 
     @Embedded
     private Usage usage;
 
-
     private final String v = """
-            Gere uma lista com uma rotina de %s dias de treino (cada dia sendo um item da lista) a partir de %s para uma pessoa com deficiencia ( %s ) em reabilitacao, pesando %,.0f Kg, com %,.2f metros de altura e com %s anos de idade.""";
+            Gere uma lista com uma rotina de %s dias de treino de fiseoterapia (cada dia sendo um item da lista) a partir de %s para uma pessoa com deficiencia ( %s ) em reabilitacao, pesando %,.0f Kg, com %,.2f metros de altura e com %s anos de idade.""";
 
     private String prompt = "";
-
+    @Column(name = "output", columnDefinition = "TEXT")
     private String output;
 
 

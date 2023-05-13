@@ -16,16 +16,14 @@ public class ProtitipoApplication {
 
     public static void main(String[] args) {
 
-
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("maria-db");
         EntityManager manager = factory.createEntityManager();
-
 
         var usuario = new Paciente();
         usuario.setNascimento(LocalDate.now().minusYears(24));
         usuario.setPeso(53);
         usuario.setAltura(1.75f);
-        usuario.setDescDeficiencia("Braço esquerdo amputado na altura do cotovelo");
+        usuario.setDescDeficiencia("Braco esquerdo amputado na altura do cotovelo");
 
 
         var treino = new Treino();
@@ -33,12 +31,12 @@ public class ProtitipoApplication {
                 .setQuantidadeDeDias(5)
                 .setInicio(LocalDateTime.now().plusDays(1))
                 .setFim(LocalDateTime.now().plusDays(6))
-                .setDescricao("Amputação no braço esquerdo na altura do cotovelo");
+                .setDescricao("Amputacao no braco esquerdo na altura do cotovelo");
 
+        System.out.println(treino.toString());
 
         var gpt = new GPT();
         gpt.setTreino(treino);
-
 
         String prompt = gpt.getPrompt();
 
@@ -46,6 +44,7 @@ public class ProtitipoApplication {
         service.setPROMPT(prompt);
         service.gerarInput();
 
+        gpt.setOutput(service.getPromptMap().toString());
 
         System.out.println(service);
 
