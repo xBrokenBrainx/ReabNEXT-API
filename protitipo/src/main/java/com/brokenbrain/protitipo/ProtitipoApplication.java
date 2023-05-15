@@ -20,18 +20,18 @@ public class ProtitipoApplication {
         EntityManager manager = factory.createEntityManager();
 
         var usuario = new Paciente();
-        usuario.setNascimento(LocalDate.now().minusYears(24));
-        usuario.setPeso(53);
-        usuario.setAltura(1.75f);
-        usuario.setDescDeficiencia("Braco esquerdo amputado na altura do cotovelo");
+        usuario.setDtNasc(LocalDate.now().minusYears(47));
+        usuario.setPeso(70);
+        usuario.setAltura(1.67f);
+        usuario.setDescDeficiencia("Perna direita amputada acima do joelho");
 
 
         var treino = new Treino();
         treino.setPaciente(usuario)
-                .setQuantidadeDeDias(5)
-                .setInicio(LocalDateTime.now().plusDays(1))
-                .setFim(LocalDateTime.now().plusDays(6))
-                .setDescricao("Amputacao no braco esquerdo na altura do cotovelo");
+                .setQtdDias(5)
+                .setDtInicio(LocalDateTime.now().plusDays(1))
+                .setDtFim(LocalDateTime.now().plusDays(6))
+                .setDescDeficiencia(usuario.getDescDeficiencia());
 
         System.out.println(treino.toString());
 
@@ -44,7 +44,7 @@ public class ProtitipoApplication {
         service.setPROMPT(prompt);
         service.gerarInput();
 
-        gpt.setOutput(service.getPromptMap().toString());
+        gpt.setOutputGpt(service.getPromptMap().toString());
 
         System.out.println(service);
 

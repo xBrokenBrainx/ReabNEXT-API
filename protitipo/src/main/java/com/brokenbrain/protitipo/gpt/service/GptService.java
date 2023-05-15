@@ -16,14 +16,13 @@ import java.util.Map;
 @Data
 public class GptService {
 
-    private static String KEY = "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";
+    private static String KEY = "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";
     private String PROMPT = "";
     private long MAX_TOKENS = 300;
     private float TEMPERATURE = 1;
     private String MODEL = "text-davinci-003";
 
     private Map<String, Object> promptMap;
-
 
     public Map<String, Object> getPromptMap() {
         return promptMap;

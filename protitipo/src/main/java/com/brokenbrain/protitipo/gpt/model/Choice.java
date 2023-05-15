@@ -11,7 +11,6 @@ public class Choice {
     @SequenceGenerator(name = "SQ_CHOICE", sequenceName = "SQ_CHOICE")
     @Column(name = "ID_CHOICE")
     private Long id;
-
     private String texto;
     private String indx;
     private String logProbs;
