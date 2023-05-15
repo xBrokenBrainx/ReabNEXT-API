@@ -24,31 +24,31 @@ public class Treino {
     )
     private Paciente paciente;
 
-    @Column(name = "DS_TREINO")
-    private String descricao;
+    @Column(name = "DS_DEFICIENCIA")
+    private String descDeficiencia;
 
     @Column(name = "DT_GERACAO")
     private
-    LocalDateTime geracao;
+    LocalDateTime dtGeracao;
 
     @Column(name = "NR_DIAS")
-    int quantidadeDeDias;
+    int qtdDias;
 
     @Column(name = "DT_INICIO")
     private
-    LocalDateTime inicio;
+    LocalDateTime dtInicio;
 
     @Column(name = "DT_FIM")
     private
-    LocalDateTime fim;
+    LocalDateTime dtFim;
 
 
-    public int getQuantidadeDeDias() {
-        return quantidadeDeDias;
+    public int getQtdDias() {
+        return qtdDias;
     }
 
-    public Treino setQuantidadeDeDias(int quantidadeDeDias) {
-        this.quantidadeDeDias = quantidadeDeDias;
+    public Treino setQtdDias(int quantidadeDeDias) {
+        this.qtdDias = quantidadeDeDias;
         return this;
     }
 
@@ -70,39 +70,39 @@ public class Treino {
         return this;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescDeficiencia() {
+        return descDeficiencia;
     }
 
-    public Treino setDescricao(String descricao) {
-        this.descricao = descricao;
+    public Treino setDescDeficiencia(String descricao) {
+        this.descDeficiencia = descricao;
         return this;
     }
 
-    public LocalDateTime getGeracao() {
-        return geracao;
+    public LocalDateTime getDtGeracao() {
+        return dtGeracao;
     }
 
-    public Treino setGeracao(LocalDateTime geracao) {
-        this.geracao = geracao;
+    public Treino setDtGeracao(LocalDateTime geracao) {
+        this.dtGeracao = geracao;
         return this;
     }
 
-    public LocalDateTime getInicio() {
-        return inicio;
+    public LocalDateTime getDtInicio() {
+        return dtInicio;
     }
 
-    public Treino setInicio(LocalDateTime inicio) {
-        this.inicio = inicio;
+    public Treino setDtInicio(LocalDateTime inicio) {
+        this.dtInicio = inicio;
         return this;
     }
 
-    public LocalDateTime getFim() {
-        return fim;
+    public LocalDateTime getDtFim() {
+        return dtFim;
     }
 
-    public Treino setFim(LocalDateTime fim) {
-        this.fim = fim;
+    public Treino setDtFim(LocalDateTime fim) {
+        this.dtFim = fim;
         return this;
     }
 

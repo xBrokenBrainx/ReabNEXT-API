@@ -1,6 +1,5 @@
 package com.brokenbrain.protitipo.gpt.model;
 
-import com.brokenbrain.protitipo.paciente.model.Paciente;
 import com.brokenbrain.protitipo.treino.model.Treino;
 import jakarta.persistence.*;
 
@@ -19,7 +18,7 @@ public class GPT {
     @GeneratedValue(generator = "SQ_GPT", strategy = GenerationType.SEQUENCE)
     @SequenceGenerator(name = "SQ_GPT", sequenceName = "SQ_GPT")
     @Column(name = "ID_GPT")
-    Long code;
+    Long idGpt;
 
     String id;
 
@@ -44,12 +43,12 @@ public class GPT {
     @Embedded
     private Usage usage;
 
-    private final String v = """
+    private final String inputGpt = """
             Gere uma lista com uma rotina de %s dias de treino de fiseoterapia (cada dia sendo um item da lista) a partir de %s para uma pessoa com deficiencia ( %s ) em reabilitacao, pesando %,.0f Kg, com %,.2f metros de altura e com %s anos de idade.""";
 
     private String prompt = "";
     @Column(name = "output", columnDefinition = "TEXT")
-    private String output;
+    private String outputGpt;
 
 
     public GPT() {
@@ -69,16 +68,16 @@ public class GPT {
     }
 
     public String getPrompt() {
-        String p = String.format(v, treino.getQuantidadeDeDias(), treino.getInicio().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), treino.getPaciente().getDescDeficiencia(), treino.getPaciente().getPeso(), treino.getPaciente().getAltura(), Year.now().minusYears(treino.getPaciente().getNascimento().getYear()));
+        String p = String.format(inputGpt, treino.getQtdDias(), treino.getDtInicio().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")), treino.getPaciente().getDescDeficiencia(), treino.getPaciente().getPeso(), treino.getPaciente().getAltura(), Year.now().minusYears(treino.getPaciente().getDtNasc().getYear()));
         return p;
     }
 
-    public String getOutput() {
-        return output;
+    public String getOutputGpt() {
+        return outputGpt;
     }
 
-    public GPT setOutput(String output) {
-        this.output = output;
+    public GPT setOutputGpt(String output) {
+        this.outputGpt = output;
         return this;
     }
 
@@ -91,12 +90,12 @@ public class GPT {
         return this;
     }
 
-    public Long getCode() {
-        return code;
+    public Long getIdGpt() {
+        return idGpt;
     }
 
-    public GPT setCode(Long code) {
-        this.code = code;
+    public GPT setIdGpt(Long code) {
+        this.idGpt = code;
         return this;
     }
 
@@ -148,7 +147,7 @@ public class GPT {
     @Override
     public String toString() {
         return "GPT{" +
-                "code=" + code +
+                "code=" + idGpt +
                 ", id='" + id + '\'' +
                 ", object='" + object + '\'' +
                 ", created=" + created +
@@ -156,9 +155,9 @@ public class GPT {
                 ", treino=" + treino +
                 ", choices=" + choices +
                 ", usage=" + usage +
-                ", v='" + v + '\'' +
+                ", v='" + inputGpt + '\'' +
                 ", prompt='" + prompt + '\'' +
-                ", output='" + output + '\'' +
+                ", output='" + outputGpt + '\'' +
                 '}';
     }
 }

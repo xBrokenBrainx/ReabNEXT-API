@@ -14,17 +14,17 @@ public class Paciente {
     @Column(name = "ID_PACIENTE")
     private Long id;
 
-    @Column(name = "DESC_Deficiencia_Usuario")
+    @Column(name = "DS_DEFICIENCIA")
     private String descDeficiencia;
 
-    @Column(name = "Peso_Usuario")
+    @Column(name = "Peso_Paciente")
     private float peso;
 
-    @Column(name = "Altura_Usuario")
+    @Column(name = "Altura_Paciente")
     private float altura;
 
-    @Column(name = "DT_NASCIMENTO")
-    private LocalDate nascimento;
+    @Column(name = "DT_NASC_Paciente")
+    private LocalDate dtNasc;
 
 
     public Long getId() {
@@ -63,12 +63,12 @@ public class Paciente {
         return this;
     }
 
-    public LocalDate getNascimento() {
-        return nascimento;
+    public LocalDate getDtNasc() {
+        return dtNasc;
     }
 
-    public Paciente setNascimento(LocalDate nascimento) {
-        this.nascimento = nascimento;
+    public Paciente setDtNasc(LocalDate nascimento) {
+        this.dtNasc = nascimento;
         return this;
     }
 }
