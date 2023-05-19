@@ -24,4 +24,4 @@ E a partir desses dados é gerado a rotina de treino com o Chat GPT.
 
 - Classes (propriedades/fields/atributos):
 
-![](https://github.com/nwrn/ReabNEXT-API/blob/main/documentacao/ReabNext_umlClassDiagram_fields.png?raw=true))
+![](https://github.com/nwrn/ReabNEXT-API/blob/main/documentacao/ReabNext_umlClassDiagram_fields.png?raw=true)
