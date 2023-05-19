@@ -18,10 +18,10 @@ E a partir desses dados é gerado a rotina de treino com o Chat GPT.
 
 ![](https://github.com/nwrn/ReabNEXT-API/blob/main/documentacao/reabnext_usecase_diagram.png?raw=true)
 
+- Sequence:
+
+![](https://github.com/xBrokenBrainx/ReabNEXT-API/blob/main/documentacao/reabnext_sequence_diagram.png?raw=true)
+
 - Classes(dependências/relacionamento):
 
 ![](https://github.com/nwrn/ReabNEXT-API/blob/main/documentacao/ReabNext_umlClassDiagram_dependencies.png?raw=true)
-
-- Classes (propriedades/fields/atributos):
-
-![](https://github.com/nwrn/ReabNEXT-API/blob/main/documentacao/ReabNext_umlClassDiagram_fields.png?raw=true)
