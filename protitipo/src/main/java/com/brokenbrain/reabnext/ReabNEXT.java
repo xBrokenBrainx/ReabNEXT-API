@@ -48,8 +48,8 @@ public class ReabNEXT {
         GptService service = new GptService();
         service.setPROMPT(prompt);
         service.gerarTreino();
-        gpt.setOutputGpt(service.getOutputGptMap().toString());
-        System.out.println(service);
+        gpt.setOutputGpt( service.getOutputGptMap().toString() );
+        System.out.println( service );
 
         // - Usando o manager(Instância de EntityManager) para fazer persistência dos dados
         manager.getTransaction().begin();
